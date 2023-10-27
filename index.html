@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBkPSJNMjQ5LjAyMSA2Ni45ODdhMzEuNjc3IDMxLjY3NyAwIDAgMC0yMi4zNTktMjIuMzZjLTE5LjcyLTUuMjg1LTk4LjgwNS01LjI4NS05OC44MDUtNS4yODVzLTc5LjA4NSAwLTk4LjgwNSA1LjI4NmEzMS42NzcgMzEuNjc3IDAgMCAwLTIyLjM2IDIyLjM1OWMtNS4yODUgMTkuNzItNS4yODUgNjAuODctNS4yODUgNjAuODdzMCA0MS4xNSA1LjI4NiA2MC44N2EzMS42NzcgMzEuNjc3IDAgMCAwIDIyLjM1OSAyMi4zNmMxOS43MiA1LjI4NSA5OC44MDUgNS4yODUgOTguODA1IDUuMjg1czc5LjA4NSAwIDk4LjgwNS01LjI4NmEzMS42NzcgMzEuNjc3IDAgMCAwIDIyLjM2LTIyLjM1OWM1LjI4NS0xOS43MiA1LjI4NS02MC44NyA1LjI4NS02MC44N3MwLTQxLjE1LTUuMjg2LTYwLjg3eiIgZmlsbD0icmVkIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEwMi41NjcgMTY1Ljc5MiA2NS42OTgtMzcuOTM1LTY1LjY5OC0zNy45MzV6Ii8+PC9zdmc+">
+  <title>YouTube Proxy</title>
+<style id="jsbin-css">
+html,body,video{margin:0;width:100%;height:100%}
+</style>
+</head>
+<body>
+  <video id="yt-frame" controls autoplay></video>
+<script id="jsbin-javascript">
+fetch('https://co.wuk.sh/api/json', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        'url': prompt("Video URL:"),
+        'vCodec': 'h264',
+        'vQuality': '720',
+        'aFormat': 'best',
+        'filenamePattern': 'nerdy'
+    })
+})
+  .then((resp) => {return resp.json();})
+  .then((resp) => {console.log(resp);document.getElementById("yt-frame").src = resp.url;})
+</script>
+</body>
+</html>
